@@ -570,7 +570,7 @@ def analyzeCommand(profilingfile, participant, event, outfile=None, unit="us"):
                         .agg(
                             pl.sum("dur").alias(f"R{rank}:sum"),
                             pl.count("dur").alias(f"R{rank}:count"),
-                            pl.mean("dur").alias(f"R{rank}:mean"),
+                            pl.mean("dur").round(2).alias(f"R{rank}:mean"),
                             pl.min("dur").alias(f"R{rank}:min"),
                             pl.max("dur").alias(f"R{rank}:max"),
                         )
